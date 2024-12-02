@@ -1,3 +1,2 @@
-# Sistema de Comandas
- Sistema para un restaurante, para la gestion de comandas y reporte de ventas
-
+# Sistema para el Restaurante Paquito
+Sistema de Gestion de comandas para el Resturante Campestre turisco Paquito

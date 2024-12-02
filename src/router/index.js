@@ -16,6 +16,7 @@ import Perfil from '../components/Usuarios/Perfil'
 import CambiarPassword from '../components/Usuarios/CambiarPassword'
 import Inicio from '../components/Inicio'
 import ReporteVentas from '../components/Ventas/ReporteVentas'
+import RolesUsuario from '../components/Usuarios/RolesUsuario' // Importa el componente RolesUsuario
 
 Vue.use(Router)
 
@@ -92,6 +93,11 @@ export default new Router({
       path: '/reporte-ventas',
       name: 'ReporteVentas',
       component: ReporteVentas
+    },
+    {
+      path: '/roles-usuario', // Define la ruta para RolesUsuario
+      name: 'RolesUsuario',
+      component: RolesUsuario
     },
   ]
 })

@@ -1,0 +1,46 @@
+
+
+/* Importa la fuente "Amaranth" desde Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Amaranth');
+
+/* Estilos para el fondo */
+.fondo {
+    background-color: #008c07; /* Define el color de fondo como verde */
+    background-attachment: fixed; /* Fija el fondo al hacer scroll */
+    background-size: contain; /* Ajusta la imagen de fondo para que se contenga dentro del elemento */
+    background-image: url('../img/fondologin.png'); /* Establece la imagen de fondo */
+}
+
+/* Estilos para el título */
+.titulo {
+    font-family: Amaranth, "SF Pro"; /* Define las fuentes como Amaranth y, en su defecto, SF Pro */
+    text-align: center; /* Centra el texto horizontalmente */
+    font-size: 33px; /* Tamaño de la fuente en 30 píxeles */
+    font-style: normal; /* Estilo de fuente normal, sin cursiva */
+    font-weight: 70; /* Grosor de la fuente (valor personalizado, pero debe ser un número estándar, como 100 o 400) */
+    line-height: 28px; /* Altura de línea de 28 píxeles, para controlar el espaciado vertical */
+    letter-spacing: 1px; /* Espaciado entre letras de 1 píxel */
+    word-spacing: 3px; /* Espaciado entre palabras de 3 píxeles */
+    color: var(--black-9001-a-1-a-1-a, #1A1A1A); /* Color del texto, usando una variable CSS o un color por defecto */
+}
+
+/* Estilos para el subtítulo */
+.divsubtitle {
+    border-radius: 10px; /* Bordes redondeados de 10 píxeles */
+    font-family: Amaranth, "SF Pro"; /* Fuente del texto, SF Pro */
+    font-size: 28px; /* Tamaño de fuente (1px parece muy pequeño; posiblemente un error) */
+    text-align: center; /* Centra el texto horizontalmente */
+    font-style: normal; /* Estilo de fuente normal, sin cursiva */
+    padding: 20px; /* Relleno interno de 5 píxeles alrededor del texto */
+    font-weight: 400; /* Grosor de la fuente (debe ser un valor válido como 100, 400, etc.) */
+    color: black; /* Color del texto en negro */
+}
+
+.contraseña{
+    display: flex;
+    width: 320px;
+    padding: var(--Space-200, 8px) var(--Space-200, 8px) var(--Space-200, 8px) var(--Space-400, 16px);
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.3px;
+}

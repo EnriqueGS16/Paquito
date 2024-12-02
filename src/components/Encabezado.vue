@@ -2,7 +2,7 @@
       <b-navbar class="fondo is-primary">
         <template #brand>
             <b-navbar-item >
-                <img :src="logo" alt="logo">
+                <img :src="logo" alt="logo" class="navbar-logo">
             <span class="has-text-weight-bold">{{ datosLocal.nombre }}</span>
                
             </b-navbar-item>
@@ -70,6 +70,9 @@
 <script>
 import HttpService from '../Servicios/HttpService'
 import Utiles from '../Servicios/Utiles'
+import '@/assets/css/Encabezado.css';
+
+
 
 export default ({
     name: 'Encabezado',

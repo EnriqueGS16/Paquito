@@ -4,38 +4,34 @@
         <div class="hero-body">
            
             <div class="container">
-        <p class="title is-1 has-text-weight-bold has-text-white has-text-centered titulo">
-            Sistema para Restaurantes<br>
-            <b-icon
-                icon="account"
-                size="is-large"
-                >
-            </b-icon>
-            <span class="subtitle">Iniciar sesión</span>
-        </p> 
+        
             <div class="columns is-centered">
-                <div class="column is-5-tablet is-6-desktop is-6-widescreen" >
-                <form action="" class="box">
-                    <img src="@/assets/logo_principal.png" alt="" height="150" width="150" style="display: block; margin:0 auto;">
-                    <p class="title is-3 has-text-centered"></p>
-                    <b-field>
-                        <b-input placeholder="Correo electrónico"
+                
+                <div class="column is-5-tablet is-6-desktop is-4-widescreen" >
+                <form action="" class="box custom-margin">
+                    <p class="titulo">
+                        Sistema Comandas <br> Paquito<br><br>
+                    </p> 
+                    <img src="@/assets/img/logologin.png" alt="" height="120" width="120" style="display: block; margin:0 auto;">
+                    <p class="divsubtitle">Iniciar sesión</p>
+                    <b-field class="correo-electronico">Correo electrónico
+                        <b-input placeholder="Ingresa tu correo electrónico"
                             type="email"
                             icon="email"
                             v-model="correo">
                         </b-input>
                     </b-field>
 
-                    <b-field>
+                    <b-field class="Contraseña">Contraseña
                         <b-input type="password"
-                            placeholder="Contraseña"
+                            placeholder="Ingresa tu contraseña"
                             v-model="password"
                             password-reveal>
                         </b-input>
                     </b-field>
 
                     <div class="field has-text-centered">
-                    <b-button icon-left="login" type="is-primary" size="is-large" @click="ingresar">Ingresar</b-button>
+                    <b-button icon-left="login" type="is-primary" size="is-medium" @click="ingresar">Ingresar</b-button>
                     </div>
                 </form>
                 </div>
@@ -47,6 +43,7 @@
 </template>
 <script>
 import HttpService from '../../Servicios/HttpService'
+import '../../assets/css/Login.css';
 
 export default {
     name: "Login",
@@ -112,29 +109,3 @@ export default {
 
 }
 </script>
-<style>
-
- @import url('https://fonts.googleapis.com/css?family=Amaranth');
-.fondo {
-background-color: #008c07;
-background-attachment: fixed;
-background-size: contain;
-}
-
-   
-.titulo{
-    font-family: Amaranth, sans-serif;
-    text-align: center;
-    font-size: 75px;
-    letter-spacing: 2px;
-    word-spacing: 3px;
-    color: rgb(245, 251, 255);
-    text-shadow: rgb(0, 0, 0) -4px 2px 2px;
-}
-.subtitle {
-    font-size: 1em; /* Reduce el tamaño del texto a la mitad */
-    color: black; /* Cambia el color del texto a negro */
-    font-family: 'Roboto', sans-serif; /* Ejemplo 1: Tipo de letra Roboto */
-}
-
-</style>

@@ -1,0 +1,9 @@
+.navbar-logo {
+    max-height: 40px !important; /* Ajusta a un tamaño más grande */
+    max-width: 100px !important; /* Asegura que la imagen no se reduzca */
+    height: 100px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin: 0; /* Elimina márgenes adicionales */
+    padding: 0; /* Elimina padding adicional */
+    vertical-align: middle; /* Alinea el logo verticalmente en el centro */
+}

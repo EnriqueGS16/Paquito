@@ -1,0 +1,11 @@
+// src/assets/scss/main.scss
+
+// Cambia las variables de Bulma
+$primary: #ff6347; // Cambia el color primario a un tono de tomate
+$link: #ff6347; // Usa el mismo color para los enlaces
+$button-border-radius: 8px; // Haz que los botones sean más redondeados
+$navbar-background-color: #333; // Cambia el color de fondo de la barra de navegación
+$navbar-height: 60px;
+
+// Importa Bulma desde node_modules
+@import "~bulma/bulma";

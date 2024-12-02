@@ -7,32 +7,28 @@
                 size="is-large"
                 type="is-primary"
                 tag="router-link"
-                to="/registrar-usuario">
+                to="/registrar-rol">
             </b-icon>
-            Usuarios
+            Roles
 
-        <b-button 
+            <b-button 
             type="is-success" 
             size="is-large"
             icon-left="account-multiple-plus"
-            class="is-pulled-right"  
+            class="is-pulled-right"
             tag="router-link"
-            to="/registrar-usuario">
-            Añadir usuario
-        </b-button>
-
-        <b-button 
-            type="is-primary" 
-            size="is-large"
-            icon-left="account-key"
-            class="is-pulled-right mr-4"
-            tag="router-link"
-            to="/roles-usuario">
-            Roles
-        </b-button>
+            to="/registrar-rol">
+            Añadir rol
+            </b-button>
         </p>
+        <b-breadcrumb align="is-left" >
+            <b-breadcrumb-item tag='router-link' to="/">Inicio</b-breadcrumb-item>
+            <b-breadcrumb-item tag='router-link' to="/usuarios">Usuarios</b-breadcrumb-item>
+        </b-breadcrumb>
+        <datos-usuario @registrado="onRegistrado" :usuario="usuario"></datos-usuario> 
+        <b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>
 
-        <b-select v-model="perPage">
+        <b-select v-model="perPage" >
             <option value="5">5 por página</option>
             <option value="10">10 por página</option>
             <option value="15">15 por página</option>
@@ -40,7 +36,7 @@
         </b-select>
 
         <b-table
-            :data="usuarios"
+            :data="roles"
             :paginated="isPaginated"
             :per-page="perPage"
             :bordered="true"
@@ -56,19 +52,19 @@
             aria-page-label="Page"
             aria-current-label="Current page">
 
-            <b-table-column field="correo" label="Correo" sortable v-slot="props">
-                {{ props.row.correo }}
+            <b-table-column field="id" label="ID" sortable v-slot="props">
+                {{ props.row.id }}
             </b-table-column>
 
-            <b-table-column field="nombre" label="Nombre" searchable sortable v-slot="props">
+            <b-table-column field="nombre" label="Nombre" sortable v-slot="props">
                 {{ props.row.nombre }}
             </b-table-column>
 
-            <b-table-column field="telefono" label="Teléfono" searchable sortable v-slot="props">
-                {{ props.row.telefono }}
+            <b-table-column field="descripcion" label="Descripción" sortable v-slot="props">
+                {{ props.row.descripcion }}
             </b-table-column>
 
-            <b-table-column field="acciones" label="Acciones" v-slot="props">
+            <b-table-column field="acciones" label="Acciones"  v-slot="props">
                 <div class="field is-grouped">
                     <p class="control">
                         <b-button 
@@ -89,18 +85,20 @@
                 </div>    
             </b-table-column>
         </b-table>
-        <b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>
+        <!--<b-loading :is-full-page="true" v-model="cargando" :can-cancel="false"></b-loading>-->
 
     </section>
 </template>
 
 <script>
+import DatosUsuario from './DatosUsuario.vue'
 import HttpService from '../../Servicios/HttpService'
-export default {
-    name: "Usuarios",
 
-    data: () => ({
-        usuarios: [],
+export default {
+    name: "RolesUsuario",
+
+    data: ()=> ({
+        roles: [],
         cargando: false,
         isPaginated: true,
         isPaginationSimple: false,
@@ -114,45 +112,46 @@ export default {
     }),
 
     mounted(){
-        this.obtenerUsuarios()
+        this.obtenerRoles()
     },
 
     methods: {
-        eliminar(usuario){
+        eliminar(rol){
             this.$buefy.dialog.confirm({
-                title: 'Eliminar el usuario ' + usuario.nombre,
-                message: '¿Seguro que deseas eliminar el usuario? Esta acción no se puede deshacer',
+                title: 'Eliminar el rol ' + rol.nombre,
+                message: '¿Seguro que deseas eliminar el rol? Esta acción no se puede deshacer',
                 confirmText: 'Sí, eliminar',
                 cancelText: 'No, salir',
                 type: 'is-danger',
                 hasIcon: true,
                 onConfirm: () => {
-                    HttpService.eliminar("eliminar_usuario.php", usuario.id)
+                    HttpService.eliminar("eliminar_rol.php", rol.id)
                     .then(eliminado => {
                         if(eliminado) {
-                            this.obtenerUsuarios()
-                            this.$buefy.toast.open('Usuario eliminado')
+                            this.obtenerRoles()
+                            this.$buefy.toast.open('Rol eliminado')
                         }
                     })
+                        
                 }
             })
         },
 
-        editar(idUsuario) {
+        editar(idRol) {
             this.$router.push({
-                name: "EditarUsuario",
-                params: { id: idUsuario },
+                name: "EditarRol",
+                params: { id: idRol },
             })
         },
 
-        obtenerUsuarios(){
+        obtenerRoles(){
             this.cargando = true
-            HttpService.obtener("obtener_usuarios.php")
-            .then(resultado => {
-                this.usuarios = resultado
+            HttpService.obtener("obtener_roles.php")
+            .then(resultado=> {
+                this.roles = resultado
                 this.cargando = false
             })
-        }
+        }   
     }
 }
 </script>
