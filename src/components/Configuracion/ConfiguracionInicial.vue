@@ -6,7 +6,7 @@
                 size="is-large"
                 type="is-primary">
             </b-icon>
-            Configurar 
+            Configurar  XD
         </p>
         <div class="is-centered" v-if="mostrarIniciar">
             <p class="title is-4 has-text-weight-bold">

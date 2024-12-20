@@ -144,14 +144,16 @@ export default {
             })
         },
 
-        obtenerRoles(){
-            this.cargando = true
-            HttpService.obtener("obtener_roles.php")
-            .then(resultado=> {
-                this.roles = resultado
-                this.cargando = false
-            })
-        }   
+        //obtenerRoles(){
+        //    this.cargando = true
+         //   HttpService.obtener("obtener_roles.php")
+        //    .then(resultado=> {
+        //        this.roles = resultado
+        //        this.cargando = false
+        //    })
+        //}   
+
+    
     }
 }
 </script>
